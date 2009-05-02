@@ -16,7 +16,7 @@ Sidebar Photoblog doesn't use lots of server resources and hasn't many confusing
 
 It also has some nice effects and an archive page for your photos.
 
-To see some screenshots and learn how to add your photos please see [plugin URL](http://wordpresswave.com/plugins/)!.
+To see some screenshots and learn how to add your photos please see [plugin URL](http://wordpresswave.com/plugins/).
 
  
 == Screenshots ==
