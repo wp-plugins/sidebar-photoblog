@@ -1,23 +1,18 @@
 <?php
 /*
 Plugin Name: Sidebar Photoblog
-Plugin URI: http://cyberia.ir/sidebar-photoblog/
-Description: Share your daily/family photos on your blog sidebar easily.
+Plugin URI: http://wordpresswave.com/plugins/
+Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.00
-Author URI: http://cyberia.ir/
+Version: 1.35
+Author URI: http://wordpresswave.com/
 */
+
+$exclude_from_home=true; //Change it false if you want to show photo posts in home page. 
 
 function sphoto_install() {
 global $wpdb;
 $posttable=$wpdb->prefix . "posts";
-$charset_collate = '';
-if ( $wpdb->supports_collation() ) {
-	if ( ! empty($wpdb->charset) )
-		$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
-	if ( ! empty($wpdb->collate) )
-		$charset_collate .= " COLLATE $wpdb->collate";
-}
 	
 		$post_date=date('Y-m-d H:i:s');
 		$post_date_gmt=gmdate('Y-m-d H:i:s');
@@ -46,28 +41,16 @@ if ( $wpdb->supports_collation() ) {
 				'border'=>'1',
 				'opacity'=>'1',
 				'morelink'=>$morelink,
-				'hoverimage'=>'0',
+				'hoverimage'=>'1',
 				);
 		update_option('widget_sphoto',$newoptions);
+		update_option('thumbnail_size_w',100);
+		update_option('thumbnail_size_h',100);
 
 }//end function
 
 if (!get_option('widget_sphoto')) sphoto_install();
 
-function sphoto_archive_page() {
-	$options=get_option('widget_sphoto');
-	$size_w=get_option('thumbnail_size_w');
-	$size_h=get_option('thumbnail_size_h');
-	?>
-	<div class="archive_sphoto">	
-	<?php print_sphoto($options['category'],0 ,$size_w,$size_h) ; ?>
-	</div>
-    <?php if (!is_user_logged_in()) { ?>
-    <small>Powered by <a href="http://wordpresswave.com/plugins/" title="Sidebar Photoblog WordPress Plugin"><span style="color:#666">WordPress Sidebar Photoblog</span></a></small>
-	<?php }
-	
-}
-add_shortcode('sphoto_archive', 'sphoto_archive_page');
 
 function sphoto_get_post_attachments_id($post_id) {
 global $wpdb; //only for images
@@ -100,12 +83,30 @@ global $post;
 
 }
 
+function sphoto_archive_page() {
+	$options=get_option('widget_sphoto');
+	$size_w=get_option('thumbnail_size_w');
+	$size_h=get_option('thumbnail_size_h');
+	?>
+	<div class="archive_sphoto">	
+	<?php print_sphoto($options['category'],'-1',$size_w,$size_h) ; ?>
+	</div>
+    
+    <?php 
+	
+	if (!is_user_logged_in()) { ?>
+    <small>By <a href="http://wordpresswave.com/plugins/" title="Sidebar Photoblog WordPress Plugin"><span style="color:#666">WordPress Sidebar Photoblog</span></a></small>
+	<?php }
+	
+}
+add_shortcode('sphoto_archive', 'sphoto_archive_page');
+
 function widget_sphoto_init() {
 	if ( !function_exists('register_sidebar_widget') || !function_exists('register_widget_control') )
 		return;	
 	function widget_sphoto_control() {
 		$options = $newoptions = get_option('widget_sphoto');
-		if ( !is_array($newoptions) ) {
+		if ( !is_array($newoptions) ) { //NOT happened never!!
 			$newoptions = array(
 				'title'=>'Photoblog', 
 				'category'=>'', 
@@ -113,9 +114,9 @@ function widget_sphoto_init() {
 				'border'=>'1',
 				'opacity'=>'1',
 				'morelink'=>'',
-				'hoverimage'=>'0',
+				'hoverimage'=>'1',
 				);
-			update_option('widget_sphoto',$newoptions);
+			update_option('widget_sphoto',$newoptions); 
 		}
 				
 		$options = get_option('widget_sphoto');
@@ -185,13 +186,13 @@ function widget_sphoto_init() {
         <label>Width: &nbsp;<input type="text" name="size_w" id="wsize" value="<?php echo $size_w;?>" style="width:40px;" /> px</label><br />
         <label>Height: <input type="text" name="size_h" id="hsize" value="<?php echo $size_h;?>" style="width:40px;" /> px</label><br /></p>
         
-    <label>More link<br />
+    <label>More link (Automatically generated. Usually don't change it) <br />
     <input type="text" name="morelink" id="morelink" value="<?php echo $morelink; ?>" style="width:250px;" /><br />
 </label><small>To hide more link leave it blank.</small>
     
         
    <p>     
-<p>Other</p>
+</p><p>Other</p>
 
 <input type="checkbox" name="border" id="border" value="1" <?php if ($border) echo 'checked'; ?> />
 <label for="border">Display photos with border and padding (Recommended).
@@ -231,10 +232,10 @@ function widget_sphoto($args) {
 
 	echo $before_widget . $before_title . $title . $after_title;
 	?>
-	<div class="widget_sphoto">
+	<div class="widget_sphoto_body">
 
 <?php  print_sphoto($category,$numphoto ,$size_w,$size_h,$hoverimage) ;
-	
+
 		if ($options['morelink']) echo '<br/><a href="'.$options['morelink'].'" title="Browse Photos">More Photos</a>';
 		echo '</div>'.$after_widget;
 		
@@ -250,7 +251,8 @@ register_widget_control('Sidebar Photoblog', 'widget_sphoto_control', 345, 620);
 function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=false) {
 
 	  $photos = new WP_Query('showposts='.$numphoto.'&cat='.$category); 
-	  if ($photos->have_posts()) : while ($photos->have_posts()) : $photos->the_post(); 
+	  if ($photos->have_posts()) : 
+	  	while ($photos->have_posts()) : $photos->the_post(); 
 	  
 			$post_id=get_the_ID();
 			$imgsrc=sphoto_get_post_img_url($post_id,$size='thumbnail',$sizeinfo=false);
@@ -267,23 +269,38 @@ function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=
    
 	
 	<?php
-	 endwhile;
+		 endwhile;
+	
 	 ?>
     <? 
 	else : ?>
      <p class="center"><strong>No photo currently!</strong></p>
-     <p> How can you add your photos here? Visit <a href="http://wordpresswave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> offical page or see Readme file in the plugin directory.</p>
+     <p> How can you add your photos here? Visit <a href="http://wordpresswave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> or see Readme.txt in the plugin directory.</p>
 
-	<?php endif; 
+	<?php 
+	endif;
+	
 }
 
 
 function sphoto_header(){
 $options=get_option('widget_sphoto');
+$negcat="-".$options['category'];
 
-if (is_home()) {
-	query_posts("cat=- ".$options['category']);
-} //exclude from homepage
+if ($exclude_from_home) {
+	global $wp_query;
+	if ( (!is_single()) && (!is_page()) ) 
+	query_posts(
+		array_merge(
+			array('cat' => $negcat),
+			$wp_query->query
+		)
+	);
+}
+
+
+
+
 echo "\n<!-- Sidebar Photoblog Widget Style http://wordpresswave.com/plugins/ -->\n";	
 ?>
 <style type="text/css" media="screen">
@@ -299,23 +316,23 @@ echo "\n<!-- Sidebar Photoblog Widget Style http://wordpresswave.com/plugins/ --
 	    }
 		if ($options['border']) {
 		?>
-		.widget_sphoto{text-align:center}
-		.widget_sphoto img{border:1px solid #CCC;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:3px;margin:0px 5px 5px 0px;}
-		.widget_sphoto img:hover{border:1px solid #6699FF;padding:3px;}
+		.widget_sphoto_body{text-align:center}
+		.widget_sphoto_body img{border:1px solid #CCC;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:3px;margin:0px 5px 5px 0px;}
+		.widget_sphoto_body img:hover{border:1px solid #6699FF;padding:3px;}
 		<?php 
 		}
 		if  ($options['opacity']) { ?>
-		.widget_sphoto img,.archive_sphoto img{filter:alpha(opacity=70);opacity:0.7;-moz-opacity:0.7;}
-		.widget_sphoto img:hover,.archive_sphoto img:hover{filter:alpha(opacity=100);opacity:1;-moz-opacity:1;}
+		.widget_sphoto_body img,.archive_sphoto img{filter:alpha(opacity=70);opacity:0.7;-moz-opacity:0.7;}
+		.widget_sphoto_body img:hover,.archive_sphoto img:hover{filter:alpha(opacity=100);opacity:1;-moz-opacity:1;}
 		<?php
 		} ?>
 </style>
 		<?php 
 		if  ($options['hoverimage']) { ?>
-        <table style="position:absolute;top:-500px;left:0px;z-index:500;font-family:tahoma;font-size:11px;-moz-opacity:.9;" id="preview" cellspacing=0 cellpadding=0>
+        <table style="position:absolute;top:-500px;left:0px;z-index:500;font-family:tahoma;font-size:11px;-moz-opacity:1;" id="preview" cellspacing=0 cellpadding=0>
         <tr><td style="color:#000000;" id="cellpreview">
-        </table>
-        <input type="hidden" id="usepreview" value = "0">
+        </td></tr></table>
+        <input type="hidden" id="usepreview" value = "0" />
                 <script>
             var isIE = document.all?true:false;
             if (!isIE) document.captureEvents(Event.MOUSEMOVE);
@@ -449,4 +466,8 @@ function sphoto_post_filter($query) {
 			
 add_action('pre_get_posts','sphoto_post_filter');
 */
+
+
+
+
 ?>
