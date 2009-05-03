@@ -42,7 +42,7 @@ It's completely flexible you can upload several photos or add your own content.
 
 = My photos show in main column of the blog? =
 
-Please remove Recent Posts Wdiget from your sidebar. This problem will be solved in next version.
+Please remove Recent Posts Widget from your sidebar. This problem will be solved in next version.
 
 = Any other thing? =
 
