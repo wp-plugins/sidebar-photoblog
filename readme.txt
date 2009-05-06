@@ -49,7 +49,8 @@ Please remove Recent Posts Widget from your sidebar. This problem will be solved
 -You can customize padding, borders,etc using CSS (Don't forget to disable style related options in widget settings first).
 -If your theme can't show large photos properly change 'Max Width' in Settings->Media. You can also change thumbnail size and size of preview pop-up image('Medium size') over there.
   
-
+=Would you like to show your photos post in main page=
+Open sidebar-photoblog.php with a text-editor(like notepad) search for "exclude_from_home" and change it to false
 
 == Installation ==
 
