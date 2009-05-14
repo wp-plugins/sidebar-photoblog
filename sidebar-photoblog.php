@@ -19,7 +19,7 @@ $posttable=$wpdb->prefix . "posts";
 		$sql ="INSERT INTO $posttable
 		(post_author, post_date, post_date_gmt, post_content, post_content_filtered, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_parent, menu_order, post_type)
 		VALUES
-		('1', '$post_date', '$post_date_gmt', '[sphoto_archive]', '', 'Browse Photos', '', 'publish', 'closed', 'closed', '', 'browse', '', '', '$post_date', '$post_date_gmt', '0', '0', 'page');";
+		('1', '$post_date', '$post_date_gmt', '[sphoto_archive]', '', 'Photos', '', 'publish', 'closed', 'closed', '', 'browse', '', '', '$post_date', '$post_date_gmt', '0', '0', 'page');";
 
 		$wpdb->query($sql);
 		
@@ -33,7 +33,6 @@ $posttable=$wpdb->prefix . "posts";
 		
 		$cat_id = wp_create_category('Sidebar Photoblog',0);
 		
-	
 		$newoptions = array(
 				'title'=>'Photoblog', 
 				'category'=>$cat_id, 
@@ -468,8 +467,4 @@ function sphoto_post_filter($query) {
 			
 add_action('pre_get_posts','sphoto_post_filter');
 */
-
-
-
-
 ?>
