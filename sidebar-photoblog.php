@@ -4,11 +4,11 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wordpresswave.com/plugins/
 Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.36.1
+Version: 1.37
 Author URI: http://wordpresswave.com/
 */
 
-$exclude_from_home=true; //Change it false if you want to show photo posts in home page. 
+//Search for $exclude_from_home=true; and change it false if you want to show photo posts in home page. 
 
 function sphoto_install() {
 global $wpdb;
@@ -26,7 +26,7 @@ $posttable=$wpdb->prefix . "posts";
 		if (get_option('permalink_structure')) {
 		$morelink=get_option('home').'/browse/';
 		}else{
-		$morelink=get_option('home').'/?p='.mysql_insert_id();
+		$morelink=get_option('home').'/?page_id='.mysql_insert_id();
 		}
 		
 		require_once(ABSPATH.'wp-admin/includes/taxonomy.php');
@@ -274,7 +274,7 @@ function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=
     <? 
 	else : ?>
      <p class="center"><strong>No photo currently!</strong></p>
-     <p> How can you add your photos here? Visit <a href="http://wordpresswave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> or see Readme.txt in the plugin directory.</p>
+     <p> How can you add your photos here? See <a href="http://wordpresswave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory.</p>
 
 	<?php 
 	endif;
