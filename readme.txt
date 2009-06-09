@@ -10,11 +10,12 @@ A simple but reliable photoblog plugin for WordPress helps you to share your dai
 
 == Description ==
 
-There are several photoblog plugins for WordPress around the Internet. Most of them, suppose that you are a professional photographer who make much money via his/her camera, but We don't think so!
+There are several photo blog plug-in for WordPress. Most of them assume that you are a professional photographer who makes lots of money via his/her camera.  We are perfect for bloggers.
 
-Sidebar Photoblog doesn't use lots of server resources and hasn't many confusing options. It uses WordPress functions to get maximum flexibility, simplicity  and compatibility .
+Sidebar Photo blog doesn’t use lots of server resources and doesn't have any confusing options.  It uses WordPress functions to get maximum compatibility and flexibility.
 
-It also has some nice effects and an archive page for your photos.
+Sidebar Photo blog is simple, light and easy to use. It also has some nice effects and an archive page for your photos.
+
 
 To see some screenshots and learn how to add your photos please see [plugin URL](http://wordpresswave.com/plugins/).
 
@@ -28,17 +29,15 @@ Screenshots here: http://wordpresswave.com/plugins/sidebar-photoblog/#screenshot
 
 = How can I use it? =
 
-After adding widget to your sidebar, the plugin automatically creates a category called 'Sidebar Photoblog' and a page as photo archive:'Browse Photos'. You can edit that category and page but "[sphoto_archive]" should remain in the page content(usually not required).
+After installation, the plug-in automatically creates a category called ‘Sidebar Photo blog’ and a page for a photo archive called `Photos’. You can edit those categories and pages via WordPress but “[sphoto_archive]” should remain in the page content.
+To Insert Your Photos
+	1.Click for new posts and choose the photo blog category (usually ‘Sidebar Photo blog’).
+	2.Upload your photo via the WordPress Editor (don’t use ‘From URL’ tab).
+	3.Insert the full size image into post and publish it.
+It’s that easy!
 
-To insert your photos:
+It is very flexible.  You can upload several photos and add your own content.
 
-1) Click for new post and choose photoblog category (usally 'Sidebar Photoblog').
-2) Upload your photo via WordPress Editor (don't use 'From URL' tab).
-3) Insert full size image into post and publish it.
-
-That's all! 
-
-It's completely flexible you can upload several photos or add your own content.
 
 = My photos show in main column of the blog? =
 

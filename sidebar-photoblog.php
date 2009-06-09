@@ -4,7 +4,7 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wordpresswave.com/plugins/
 Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.37
+Version: 1.38
 Author URI: http://wordpresswave.com/
 */
 
@@ -261,7 +261,7 @@ function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=
 		
 			if ($imgsrc) { ?>
 			
-			<span><a href="<?php echo the_permalink(); ?>" rel="bookmark" <?php if (!$hoverimage) { echo 'title="';the_title_attribute();echo '"';} ?> ><img src="<?php echo $imgsrc; ?>" <?php if (!$hoverimage) { echo 'alt="';the_title_attribute();echo '"';} ?> width="<? echo $size_w; ?>px" height="<? echo $size_h;?>px" <?php if ($hoverimage) { ?> onmouseover="preview('<div class=\'preview_caption\'><img src=<?php echo $previewimage;?>><br/><center><?php the_title_attribute(); ?></center>');" onmouseout="hidepreview();"  <?php } ?>/> </a></span>
+			<span><a href="<?php echo the_permalink(); ?>" rel="bookmark" <?php if (!$hoverimage) { echo 'title="';the_title_attribute();echo '"';} ?> ><img src="<?php echo $imgsrc; ?>" <?php if (!$hoverimage) { echo 'alt="';the_title_attribute();echo '"';} ?> width="<?php echo $size_w; ?>px" height="<?php echo $size_h;?>px" <?php if ($hoverimage) { ?> onmouseover="preview('<div class=\'preview_caption\'><img src=<?php echo $previewimage;?>><br/><center><?php the_title_attribute(); ?></center>');" onmouseout="hidepreview();"  <?php } ?>/> </a></span>
 			
 	 <?php } ?>
 		  
@@ -271,7 +271,7 @@ function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=
 		 endwhile;
 	
 	 ?>
-    <? 
+    <?php 
 	else : ?>
      <p class="center"><strong>No photo currently!</strong></p>
      <p> How can you add your photos here? See <a href="http://wordpresswave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory.</p>
@@ -443,6 +443,7 @@ add_filter('wp_list_categories','sphoto_list_categories');
 
 /* Testing
 function sphoto_post_filter($query) {
+
 	global $parent_file, $wpdb, $wp_query;
 	$options = get_option('widget_sphoto');
 	
