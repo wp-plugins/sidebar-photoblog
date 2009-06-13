@@ -3,8 +3,8 @@ Contributors: Hassan Jahangiry
 Donate link: 
 Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery
 Requires at least: 2.5
-Tested up to: 2.7.1
-Stable tag: 2.7
+Tested up to: 2.8
+Stable tag: 2.8
 
 A simple but reliable photoblog plugin for WordPress helps you to share your daily photos on your sidebar easily. 
 
@@ -22,7 +22,7 @@ To see some screenshots and learn how to add your photos please see [plugin URL]
  
 == Screenshots ==
 
-Screenshots here: http://wordpresswave.com/plugins/sidebar-photoblog/#screenshot
+Screenshots here: http://wpwave.com/plugins/sidebar-photoblog/#screenshot
 
 
 == Frequently Asked Questions ==

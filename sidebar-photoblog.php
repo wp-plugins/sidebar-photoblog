@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Sidebar Photoblog
-Plugin URI: http://wordpresswave.com/plugins/
+Plugin URI: http://wpwave.com/plugins/
 Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.38
-Author URI: http://wordpresswave.com/
+Version: 1.39
+Author URI: http://wpwave.com/
 */
 
 //Search for $exclude_from_home=true; and change it false if you want to show photo posts in home page. 
@@ -54,7 +54,12 @@ if (!get_option('widget_sphoto')) sphoto_install();
 function sphoto_get_post_attachments_id($post_id) {
 global $wpdb; //only for images
 	$ids = $wpdb->get_results($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_parent = %s AND (post_mime_type=\"image/jpeg\" OR post_mime_type=\"image/gif\" OR post_mime_type=\"image/png\") ORDER BY menu_order", $post_id));
-			if ( ($ids) ) {
+	
+	//if 2.8
+	if (!$ids) {$ids = $wpdb->get_results($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE ID= %s -1 OR  ID= %s +1 AND (post_mime_type=\"image/jpeg\" OR post_mime_type=\"image/gif\" OR post_mime_type=\"image/png\") ORDER BY menu_order", $post_id,$post_id));;
+	}
+	
+			if  ($ids)  {
 				foreach ($ids as $id) {
 					$result[]=$id->ID;	
 				}
@@ -94,7 +99,7 @@ function sphoto_archive_page() {
     <?php 
 	
 	if (!is_user_logged_in()) { ?>
-    <small>By <a href="http://wordpresswave.com/plugins/" title="Sidebar Photoblog WordPress Plugin"><span style="color:#666">WordPress Sidebar Photoblog</span></a></small>
+    <small>By <a href="http://wpwave.com/plugins/" title="Sidebar Photoblog WordPress Plugin">WordPress Sidebar Photoblog</a></span></small>
 	<?php }
 	
 }
@@ -443,7 +448,6 @@ add_filter('wp_list_categories','sphoto_list_categories');
 
 /* Testing
 function sphoto_post_filter($query) {
-
 	global $parent_file, $wpdb, $wp_query;
 	$options = get_option('widget_sphoto');
 	
