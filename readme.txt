@@ -10,11 +10,17 @@ A simple but reliable photoblog plugin for WordPress helps you to share your dai
 
 == Description ==
 
+=New Features=
+*Ability to show photos random.
+*Multilingual
+
 There are several photo blog plug-in for WordPress. Most of them assume that you are a professional photographer who makes lots of money via his/her camera.  We are perfect for bloggers.
 
-Sidebar Photo blog doesn’t use lots of server resources and doesn't have any confusing options.  It uses WordPress functions to get maximum compatibility and flexibility.
+Sidebar Photo blog does not use lots of server resources and doesn't have any confusing options.  It uses WordPress functions to get maximum compatibility and flexibility.
 
 Sidebar Photo blog is simple, light and easy to use. It also has some nice effects and an archive page for your photos.
+
+
 
 
 To see some screenshots and learn how to add your photos please see [plugin URL](http://wordpresswave.com/plugins/).
@@ -50,6 +56,11 @@ Please remove Recent Posts Widget from your sidebar. This problem will be solved
   
 =Would you like to show your photos in main page?=
 Open sidebar-photoblog.php with a text-editor(like notepad) search for "exclude_from_home" and change it to false.
+
+
+Note:
+Hover preview image does not work with Mac. 
+
 
 == Installation ==
 
