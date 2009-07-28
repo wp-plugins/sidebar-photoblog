@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-06-19 13:04+0330\n"
+"Last-Translator: Hassan Jahangiry <hassan.jahan@gmail.com>\n"
+"Language-Team: WordPress Wave <info@wpwave.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#sidebar-photoblog.php
+msgid "Photoblog"
+msgstr "فوتوبلاگ"
+
+msgid "More Photos"
+msgstr "بایگانی فوتوبلاگ"
+
+msgid "Photos"
+msgstr "بایگانی فوتوبلاگ"
+
+msgid "Sidebar Photoblog"
+msgstr "دسته فوتوبلاگ"
+
+msgid "Currently: Nothing!</strong><br> Select a category as photoblog!"
+msgstr "دسته انتخاب نشده است</strong><br> لطفا یک دسته به برای تصاویر فوتوبلاگ انتخاب کنید!"
+
+msgid "By"
+msgstr "با نیروی"
+
+msgid "<a href=\"http://wpwave.com/plugins/\" title=\"Sidebar Photoblog WordPress Plugin\">WordPress Sidebar Photoblog</a>"
+msgstr "<a href=\"http://wpwave.com/plugins/\" title=\"Sidebar Photoblog WordPress Plugin\">WordPress Sidebar Photoblog</a>"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Photoblog category"
+msgstr "دسته عکس ها"
+
+msgid "Number of photos"
+msgstr "تعداد عکس ها"
+
+msgid "Size of photos"
+msgstr "اندازه"
+
+msgid "Width"
+msgstr "پهنا"
+
+msgid "Height"
+msgstr "ارتفاع"
+
+msgid "More link (Generated. No require to change)"
+msgstr "لینک بایگانی (لازم به تغییر نیست)"
+
+msgid "To hide more link leave it blank"
+msgstr "جهت حذف لینک به بایگانی عکس ها فیلد بالا را خالی بگذارید"
+
+msgid "Display photos with border and padding (Recommended)"
+msgstr "نمایش تصاویر با حاشیه"
+
+msgid "Display random photos"
+msgstr "نمایش تصاویر به صورت تصادفی"
+
+msgid "Enable opacity effect"
+msgstr "افکت شفاف سازی تصاویر "
+
+msgid "Display preview pop-up image effect"
+msgstr "افکت پیش نمایش تصاویر"
+
+msgid "No photo currently!"
+msgstr "عکسی موجود نیست"
+
+msgid "How can you add your photos here? See <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory"
+msgstr "برای فراگیری نحوه ارسال عکس این صفحه <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> و یا فایل Readme را بخوانید"
+

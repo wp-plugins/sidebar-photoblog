@@ -4,16 +4,16 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
 Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.5
+Version: 1.51
 Author URI: http://wpwave.com/
 */
 
 //Search for $exclude_from_home=true; and change it false if you want to show photo posts in home page. 
 
 if ( !defined('WP_PLUGIN_DIR') )  
-			load_plugin_textdomain('sbp','wp-content/plugins/sidebar-photoblog');
+		load_plugin_textdomain('sbp','wp-content/plugins/sidebar-photoblog');
  	else 
-			load_plugin_textdomain('sbp', false, dirname(plugin_basename(__FILE__)));
+		load_plugin_textdomain('sbp', false, dirname(plugin_basename(__FILE__)));
 			
 			
 function sphoto_install() {
