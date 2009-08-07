@@ -4,16 +4,16 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
 Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.51
+Version: 1.6
 Author URI: http://wpwave.com/
 */
 
 //Search for $exclude_from_home=true; and change it false if you want to show photo posts in home page. 
 
 if ( !defined('WP_PLUGIN_DIR') )  
-		load_plugin_textdomain('sbp','wp-content/plugins/sidebar-photoblog');
+			load_plugin_textdomain('sbp','wp-content/plugins/sidebar-photoblog');
  	else 
-		load_plugin_textdomain('sbp', false, dirname(plugin_basename(__FILE__)));
+			load_plugin_textdomain('sbp', false, dirname(plugin_basename(__FILE__)));
 			
 			
 function sphoto_install() {
@@ -49,9 +49,9 @@ $posttable=$wpdb->prefix . "posts";
 				'hoverimage'=>'1',
 				'rand'=>'0'
 				);
-		update_option('widget_sphoto',$newoptions);
 		update_option('thumbnail_size_w',100);
 		update_option('thumbnail_size_h',100);
+		update_option('widget_sphoto',$newoptions);
 
 }//end function
 
@@ -133,7 +133,7 @@ function widget_sphoto_init() {
 				);
 			update_option('widget_sphoto',$newoptions); 
 		}
-				
+		
 		$options = get_option('widget_sphoto');
 		$title = $options['title'];
 		$category = $options['category'];
@@ -340,7 +340,9 @@ echo "\n<!-- Sidebar Photoblog Widget Style http://wordpresswave.com/plugins/ --
 		<?php  
 		if ($options['hoverimage']) { ?>
 		.preview{ font-family: Tahoma, Arial, Verdana, Helvetica, sans-serif; font-size: 11px; font-weight: bold; color: #55523E; padding-left:10px; padding-top:10px; padding-bottom:10px;}
+	
 		.preview_caption{padding:3px;background-color:#dddddd;}
+		
 		.preview_caption img {}
 		<?php
 	    }
@@ -358,8 +360,9 @@ echo "\n<!-- Sidebar Photoblog Widget Style http://wordpresswave.com/plugins/ --
 		} ?>
 </style>
 		<?php 
-		if  ($options['hoverimage']) { ?>
-        <table style="position:absolute;top:-500px;left:0px;z-index:500;font-family:tahoma;font-size:11px;-moz-opacity:1;" id="preview" cellspacing=0 cellpadding=0>
+		if  ($options['hoverimage']) { 
+		$med_w=get_option('medium_size_w');?>
+        <table style="position:absolute;top:-500px;left:0px;z-index:500;font-family:Tahoma,sans-serif;font-size:11px;-moz-opacity:1;width:<?php echo $med_w; ?>px;border:none;" id="preview" cellspacing=0 cellpadding=0>
         <tr><td style="color:#000000;" id="cellpreview">
         </td></tr></table>
         <input type="hidden" id="usepreview" value = "0" />
