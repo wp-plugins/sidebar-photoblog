@@ -1,18 +1,15 @@
 === Sidebar Photoblog ===
 Contributors: Hassan Jahangiry
 Donate link: 
-Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery
+Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery, random,
 Requires at least: 2.5
-Tested up to: 2.8
+Tested up to: 2.8.3
 Stable tag: 2.8
 
 A simple but reliable photoblog plugin for WordPress helps you to share your daily photos on your sidebar easily. 
 
 == Description ==
 
-=New Features=
-*Ability to show photos random.
-*Multilingual
 
 There are several photo blog plug-in for WordPress. Most of them assume that you are a professional photographer who makes lots of money via his/her camera.  We are perfect for bloggers.
 
@@ -20,16 +17,34 @@ Sidebar Photo blog does not use lots of server resources and doesn't have any co
 
 Sidebar Photo blog is simple, light and easy to use. It also has some nice effects and an archive page for your photos.
 
+To see some screenshots and learn how to add your photos please see [plugin URL](http://wpwave.com/plugins/sidebar-photoblog/).
 
+New Features:
 
+* Ability to show random photos
 
-To see some screenshots and learn how to add your photos please see [plugin URL](http://wordpresswave.com/plugins/).
+* Multilingual: 
+	Persian by [Cyberia](http://cyberia.ir)
+	Russian by [Fatcow](http://www.fatcow.com)
 
+To add your own language contact us.
  
 == Screenshots ==
 
 Screenshots here: http://wpwave.com/plugins/sidebar-photoblog/#screenshot
 
+== Changelog ==
+
+= 1.6.1 =
+* Russian Langauge was added to package.
+
+= 1.6 =
+* Hover image bug in some theme was fixed.
+
+
+= 1.5 =
+* Random Views
+* Multilingual
 
 == Frequently Asked Questions ==
 
@@ -56,10 +71,6 @@ Please remove Recent Posts Widget from your sidebar. This problem will be solved
   
 =Would you like to show your photos in main page?=
 Open sidebar-photoblog.php with a text-editor(like notepad) search for "exclude_from_home" and change it to false.
-
-
-Note:
-Hover preview image does not work with Mac. 
 
 
 == Installation ==
