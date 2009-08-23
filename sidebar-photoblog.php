@@ -4,7 +4,7 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
 Description: Share your daily/family photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.6.1
+Version: 1.6.4
 Author URI: http://wpwave.com/
 */
 
@@ -204,7 +204,7 @@ function widget_sphoto_init() {
         <label><?php _e('Width','sbp'); ?> &nbsp;<input type="text" name="size_w" id="wsize" value="<?php echo $size_w;?>" style="width:40px;" /> px</label><br />
         <label><?php _e('Height','sbp'); ?> <input type="text" name="size_h" id="hsize" value="<?php echo $size_h;?>" style="width:40px;" /> px</label><br /></p>
         
-    <label><?php _e('More link (Generated. No require to change)','sbp'); ?>  <br />
+   <label><?php _e('More link (Generated. No require to change)','sbp'); ?>  <br />
     <input type="text" name="morelink" id="morelink" value="<?php echo $morelink; ?>" style="width:250px;" /><br />
 </label><small><?php _e('To hide more link leave it blank','sbp'); ?></small>
     
@@ -226,10 +226,10 @@ function widget_sphoto_init() {
 
 <input type="checkbox" name="hoverimage" id="hoverimage" value="1" <?php if ($hoverimage) echo 'checked'; ?> />
 <label for="hoverimage"><?php _e('Display preview pop-up image effect','sbp'); ?>
-</label>
+</label><br/>
+Love Sidebar Photoblog? <a href="http://www.wordpress.org/extend/plugins/sidebar-photoblog/">Vote it Up!</a><br/>
 
-
-		<input type="hidden" id="sphoto-submit" name="sphoto-submit" value="1" />
+<input type="hidden" id="sphoto-submit" name="sphoto-submit" value="1" />
         <?php
 	}
 

@@ -6,7 +6,7 @@ Requires at least: 2.5
 Tested up to: 2.8.3
 Stable tag: 2.8
 
-A simple but reliable photoblog plugin for WordPress helps you to share your daily photos on your sidebar easily. 
+An easy to use photoblog plugin helps you to share your daily photos on your sidebar. With photo archive, nice effects and ability to show random photos.
 
 == Description ==
 
