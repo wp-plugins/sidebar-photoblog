@@ -2,9 +2,9 @@
 /*
 Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
-Description: Share your daily/family photos on your blog sidebar easily. 
+Description: Share your daily photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.6.4
+Version: 1.6.5
 Author URI: http://wpwave.com/
 */
 
@@ -80,9 +80,9 @@ global $post;
 	$meta=get_post_meta($post_id,'image-'.$size,false);
 
 	if ($meta) {
-	return $meta[0];
+		return $meta[0];
 	}else{
-	$attached_images=sphoto_get_post_attachments_id($post_id);
+		$attached_images=sphoto_get_post_attachments_id($post_id);
 
 	
 		$result=wp_get_attachment_image_src($attached_images[0],$size); //$attached_images[0] means first attached or image that has 					lowest menu order;
@@ -90,9 +90,9 @@ global $post;
 	
 	
 		if ($sizeinfo)
-		return $result;
+			return $result;
 		else
-		return $result[0];
+			return $result[0];
 	}
 
 }
@@ -332,17 +332,14 @@ if ($exclude_from_home) {
 
 echo "\n<!-- Sidebar Photoblog Widget Style http://wpwave.com/plugins/ -->\n";	
 ?>
-<style type="text/css" media="screen">
-.archive_sphoto{text-align:left;}
-
-.archive_sphoto img{border:1px solid #CCC;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:3px;margin:0px 5px 5px 0px;}
-.archive_sphoto img:hover{border:1px solid #444;padding:3px;}
+		<style type="text/css" media="screen">
+		.archive_sphoto{text-align:left;}
+		.archive_sphoto img{border:1px solid #CCC;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:3px;margin:0px 5px 5px 0px;}
+		.archive_sphoto img:hover{border:1px solid #444;padding:3px;}
 		<?php  
 		if ($options['hoverimage']) { ?>
 		.preview{ font-family: Tahoma, Arial, Verdana, Helvetica, sans-serif; font-size: 11px; font-weight: bold; color: #55523E; padding-left:10px; padding-top:10px; padding-bottom:10px;}
-	
 		.preview_caption{padding:3px;background-color:#dddddd;}
-		
 		.preview_caption img {}
 		<?php
 	    }
@@ -410,7 +407,6 @@ echo "\n<!-- Sidebar Photoblog Widget Style http://wpwave.com/plugins/ -->\n";
             document.getElementById("usepreview").value = 0;
             }
         </script>
-
 
 <?php } ?>
 

@@ -3,7 +3,7 @@ Contributors: Hassan Jahangiry
 Donate link: 
 Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery, random,
 Requires at least: 2.5
-Tested up to: 2.8.3
+Tested up to: 2.8.4
 Stable tag: 2.8
 
 An easy to use photoblog plugin helps you to share your daily photos on your sidebar. With photo archive, nice effects and ability to show random photos.
@@ -44,6 +44,7 @@ Screenshots here: http://wpwave.com/plugins/sidebar-photoblog/#screenshot
 
 = 1.5 =
 * Random Views
+
 * Multilingual
 
 == Frequently Asked Questions ==
