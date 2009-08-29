@@ -24,8 +24,9 @@ New Features:
 * Ability to show random photos
 
 * Multilingual: 
-	Persian by [Cyberia](http://cyberia.ir)
-	Russian by [Fatcow](http://www.fatcow.com)
+	Persian by     [Cyberia](http://cyberia.ir)
+	Russian by     [Fatcow](http://www.fatcow.com)
+        Belorussian by [ilyuha](http://antsar.info)
 
 To add your own language contact us.
  
