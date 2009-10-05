@@ -66,13 +66,19 @@ It is very flexible.  You can upload several photos and add your own content.
 
 Please remove Recent Posts Widget from your sidebar. This problem will be solved in next version.
 
-= Any other thing? =
+= Customizing =
 
 -You can customize padding, borders,etc using CSS (Don't forget to disable style related options in widget settings first).
 -If your theme can't show large photos properly change 'Max Width' in Settings->Media. You can also change thumbnail size and size of preview pop-up image('Medium size') over there.
   
 =Would you like to show your photos in main page?=
 Open sidebar-photoblog.php with a text-editor(like notepad) search for "exclude_from_home" and change it to false.
+
+= Anything else? =
+
+You can get 20% discount for all of wpwave.com plugins and services using this coupon code: 'mysidebarphotoblog' It's a limited time offer.
+
+
 
 
 == Installation ==

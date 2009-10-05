@@ -4,7 +4,7 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
 Description: Share your daily photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.6.6
+Version: 1.6.7
 Author URI: http://wpwave.com/
 */
 
