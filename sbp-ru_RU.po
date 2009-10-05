@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-08-10 13:09+0300\n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: Fat Cow <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#sidebar-photoblog.php
+msgid "Photoblog"
+msgstr "Фотоблог"
+
+msgid "More Photos"
+msgstr "Больше фотографий"
+
+msgid "Photos"
+msgstr "Фотографии"
+
+msgid "Sidebar Photoblog"
+msgstr "Sidebar Photoblog"
+
+msgid "Currently: Nothing!</strong><br> Select a category as photoblog!"
+msgstr "Текущее: Ничего!</strong><br>Выберите категорию фотоблога!"
+
+msgid "By"
+msgstr "по"
+
+msgid "<a href=\"http://wpwave.com/plugins/\" title=\"Sidebar Photoblog WordPress Plugin\">WordPress Sidebar Photoblog</a>"
+msgstr "<a href=\"http://wpwave.com/plugins/\" title=\"Sidebar Photoblog WordPress Plugin\">WordPress Sidebar Photoblog</a>"
+
+msgid "Title"
+msgstr "Заглавие"
+
+msgid "Photoblog category"
+msgstr "Категория фотоблога"
+
+msgid "Number of photos"
+msgstr "Количество фотографий"
+
+msgid "Size of photos"
+msgstr "Раззмер фотографий"
+
+msgid "Width"
+msgstr "ширина"
+
+msgid "Height"
+msgstr "высота"
+
+msgid "More link (Generated. No require to change)"
+msgstr "Ссылка 'больше' (Генерируется сама.)"
+
+msgid "To hide more link leave it blank"
+msgstr "Чтобы спрятать ссылку 'Больше', оставьте пустым"
+
+msgid "Display photos with border and padding (Recommended)"
+msgstr "Показ фотографий с границами и с отступами (рекомендуется)"
+
+msgid "Display random photos"
+msgstr "Отображать случайные фото"
+
+msgid "Enable opacity effect"
+msgstr "Включить эффект прозрачности"
+
+msgid "Display preview pop-up image effect"
+msgstr "Показать всплывающее окно"
+
+msgid "No photo currently!"
+msgstr "Нет фото!"
+
+msgid "How can you add your photos here? See <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory"
+msgstr "Как вы можете добавить свои фотографии? См. <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> или Readme.txt в каталоге плагина"
+

@@ -20,14 +20,12 @@ Sidebar Photo blog is simple, light and easy to use. It also has some nice effec
 To see some screenshots and learn how to add your photos please see [plugin URL](http://wpwave.com/plugins/sidebar-photoblog/).
 
 New Features:
-
 * Ability to show random photos
-
 * Multilingual: 
 	Persian by     [Cyberia](http://cyberia.ir)
 	Russian by     [Fatcow](http://www.fatcow.com)
         Belorussian by [ilyuha](http://antsar.info)
-
+	Turkish by [Hakan Demiray](http://www.dmry.net/)
 To add your own language contact us.
  
 == Screenshots ==
