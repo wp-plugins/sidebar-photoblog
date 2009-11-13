@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-10-31 08:30+0100\n"
+"Last-Translator: Wolforg <contact@wolforg.eu>\n"
+"Language-Team: WordPress Wave <info@wpwave.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#sidebar-photoblog.php
+msgid "Photoblog"
+msgstr "Photoblog"
+
+msgid "More Photos"
+msgstr "Autres Photos"
+
+msgid "Photos"
+msgstr "Photos"
+
+msgid "Sidebar Photoblog"
+msgstr "Sidebar Photoblog"
+
+msgid "Currently: Nothing!</strong><br> Select a category as photoblog!"
+msgstr "Actuellement : Rien!</strong><br> Selectionnez une catégorie comme photoblog!"
+
+msgid "By"
+msgstr "Par"
+
+msgid "<a href=\"http://wpwave.com/plugins/\" title=\"Sidebar Photoblog WordPress Plugin\">WordPress Sidebar Photoblog</a>"
+msgstr "<a href=\"http://wpwave.com/plugins/\" title=\"Plugin Wordpress  Sidebar Photoblog\">WordPress Sidebar Photoblog</a>"
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "Photoblog category"
+msgstr "Catégorie Photoblog"
+
+msgid "Number of photos"
+msgstr "Nombre de photos"
+
+msgid "Size of photos"
+msgstr "Taille des photos"
+
+msgid "Width"
+msgstr "Largeur"
+
+msgid "Height"
+msgstr "Hauteur"
+
+msgid "More link (Generated. No require to change)"
+msgstr "Lien More (Généré. Changement non requis)"
+
+msgid "To hide more link leave it blank"
+msgstr "Pour cacher le lien more, laisser le vide"
+
+msgid "Display photos with border and padding (Recommended)"
+msgstr "Afficher les photos avec bordure et padding (Recommandé)"
+
+msgid "Display random photos"
+msgstr "Afficher les photos aléatoirement"
+
+msgid "Enable opacity effect"
+msgstr "Activer effet d'opacité"
+
+msgid "Display preview pop-up image effect"
+msgstr "Afficher effet sur la pop-up d'image"
+
+msgid "No photo currently!"
+msgstr "Actuellement aucune photo!"
+
+msgid "How can you add your photos here? See <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory"
+msgstr "Comment ajouter vos photos ici? Allez sur <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> ou lisez le Readme.txt dans le répertoire du plugin"
+

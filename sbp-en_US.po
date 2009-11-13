@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-06-19 13:04+0330\n"
+"Last-Translator: Hassan Jahangiry <hassan.jahan@gmail.com>\n"
+"Language-Team: WordPress Wave <info@wpwave.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#sidebar-photoblog.php
+msgid "Photoblog"
+msgstr ""
+
+msgid "More Photos"
+msgstr ""
+
+msgid "Photos"
+msgstr ""
+
+msgid "Sidebar Photoblog"
+msgstr ""
+
+msgid "Currently: Nothing!</strong><br> Select a category as photoblog!"
+msgstr ""
+
+msgid "By"
+msgstr ""
+
+msgid "<a href=\"http://wpwave.com/plugins/\" title=\"Sidebar Photoblog WordPress Plugin\">WordPress Sidebar Photoblog</a>"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Photoblog category"
+msgstr ""
+
+msgid "Number of photos"
+msgstr ""
+
+msgid "Size of photos"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "More link (Generated. No require to change)"
+msgstr ""
+
+msgid "To hide more link leave it blank"
+msgstr ""
+
+msgid "Display photos with border and padding (Recommended)"
+msgstr ""
+
+msgid "Display random photos"
+msgstr ""
+
+msgid "Enable opacity effect"
+msgstr ""
+
+msgid "Display preview pop-up image effect"
+msgstr ""
+
+msgid "No photo currently!"
+msgstr ""
+
+msgid "How can you add your photos here? See <a href=\"http://wpwave.com/plugins/sidebar-photoblog/\">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory"
+msgstr ""
+
