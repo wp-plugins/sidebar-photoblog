@@ -1,31 +1,40 @@
 === Sidebar Photoblog ===
 Contributors: Hassan Jahangiry
-Donate link: 
-Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery, random,
-Requires at least: 2.5
-Tested up to: 2.8.4
-Stable tag: 2.8
+Donate link: http://wpwave.com/plugins/cms-members/
+Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery, random,slideshow
+Requires at least: 2.6
+Tested up to: 2.8.5
+Stable tag: 2.0
 
-An easy to use photoblog plugin helps you to share your daily photos on your sidebar. With photo archive, nice effects and ability to show random photos.
+An easy to use photoblog plugin helps you to share your daily photos on your sidebar. With slideshow, photo archive, nice effects and ability to show random images
 
 == Description ==
 
 
-There are several photo blog plug-in for WordPress. Most of them assume that you are a professional photographer who makes lots of money via his/her camera.  We are perfect for bloggers.
+There are several photo blog plug-in for WordPress. Most of them assume that you are a professional photographer who makes lots of money via his/her camera.  
 
 Sidebar Photo blog does not use lots of server resources and doesn't have any confusing options.  It uses WordPress functions to get maximum compatibility and flexibility.
 
-Sidebar Photo blog is simple, light and easy to use. It also has some nice effects and an archive page for your photos.
-
-To see some screenshots and learn how to add your photos please see [plugin URL](http://wpwave.com/plugins/sidebar-photoblog/).
-
 New Features:
+
+* Slideshow
+
 * Ability to show random photos
-* Multilingual: 
+
+
+Sidebar Photo blog is simple, light and easy to use. It also has some nice effects, a simple slideshow, ability to show random photos and an archive page for your pictures.
+
+To learn how to add your photos please see [plugin URL](http://wpwave.com/plugins/sidebar-photoblog/). It's easy!
+
+
+Languages: 
 	Persian by     [Cyberia](http://cyberia.ir)
 	Russian by     [Fatcow](http://www.fatcow.com)
+	French by      [Wolforg](http://www.wolforg.eu)
+	Turkish by     [Hakan Demiray](http://www.dmry.net)
         Belorussian by [ilyuha](http://antsar.info)
-	Turkish by [Hakan Demiray](http://www.dmry.net/)
+	
+
 To add your own language contact us.
  
 == Screenshots ==
@@ -34,7 +43,10 @@ Screenshots here: http://wpwave.com/plugins/sidebar-photoblog/#screenshot
 
 == Changelog ==
 
-= 1.6.1 =
+= 2.0 =
+* Slideshow was added.
+
+= 1.6.7 =
 * Russian Langauge was added to package.
 
 = 1.6 =
@@ -57,7 +69,7 @@ To Insert Your Photos
 	3.Insert the full size image into post and publish it.
 It’s that easy!
 
-It is very flexible.  You can upload several photos and add your own content.
+It is very flexible.  You can upload several photos and add your own content but olny first photo will be appear in widget.
 
 
 = My photos show in main column of the blog? =
@@ -70,7 +82,11 @@ Please remove Recent Posts Widget from your sidebar. This problem will be solved
 -If your theme can't show large photos properly change 'Max Width' in Settings->Media. You can also change thumbnail size and size of preview pop-up image('Medium size') over there.
   
 =Would you like to show your photos in main page?=
-Open sidebar-photoblog.php with a text-editor(like notepad) search for "exclude_from_home" and change it to false.
+Open sidebar-photoblog.php with a text-editor(like notepad) or plugin editor in WP admin. search for "exclude_from_home" and change it to false.
+
+=I want to display photo grid (in two or more columns)=
+
+Simply reduce photo size. If you don’t want it you should increase your sidebar width. The plugin arrange photos automatically.
 
 = Anything else? =
 

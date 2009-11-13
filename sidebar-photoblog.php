@@ -4,7 +4,7 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
 Description: Share your daily photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 1.6.7
+Version: 2.0
 Author URI: http://wpwave.com/
 */
 
@@ -47,7 +47,8 @@ $posttable=$wpdb->prefix . "posts";
 				'opacity'=>'1',
 				'morelink'=>$morelink,
 				'hoverimage'=>'1',
-				'rand'=>'0'
+				'rand'=>'0',
+				'slide'=>'0'
 				);
 		update_option('thumbnail_size_w',100);
 		update_option('thumbnail_size_h',100);
@@ -62,20 +63,21 @@ function sphoto_get_post_attachments_id($post_id) {
 global $wpdb; //only for images
 	$ids = $wpdb->get_results($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE post_parent = %s AND (post_mime_type=\"image/jpeg\" OR post_mime_type=\"image/gif\" OR post_mime_type=\"image/png\") ORDER BY menu_order", $post_id));
 	
-	//if 2.8
-	if (!$ids) {$ids = $wpdb->get_results($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE ID= %s +1 OR  ID= %s -1 AND (post_mime_type=\"image/jpeg\" OR post_mime_type=\"image/gif\" OR post_mime_type=\"image/png\") ORDER BY menu_order", $post_id,$post_id));;
+	//if we can't find it!
+	if (!$ids) {
+		$ids = $wpdb->get_results($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE ID= %s +1 OR  ID= %s -1 AND (post_mime_type=\"image/jpeg\" OR post_mime_type=\"image/gif\" OR post_mime_type=\"image/png\") ORDER BY menu_order", $post_id,$post_id));;
 	}
 	
-			if  ($ids)  {
-				foreach ($ids as $id) {
-					$result[]=$id->ID;	
-				}
-			}
-		return $result;
+	if  ($ids)  {
+		foreach ($ids as $id) {
+			$result[]=$id->ID;	
+		}
+	}
+	return $result;
 }
 
 function sphoto_get_post_img_url($post_id,$size='thumbnail',$sizeinfo=false) {
-global $post;
+	//global $post;
 
 	$meta=get_post_meta($post_id,'image-'.$size,false);
 
@@ -84,11 +86,7 @@ global $post;
 	}else{
 		$attached_images=sphoto_get_post_attachments_id($post_id);
 
-	
-		$result=wp_get_attachment_image_src($attached_images[0],$size); //$attached_images[0] means first attached or image that has 					lowest menu order;
-	//$result[0]: photo $result[1]:width ,$result[2]:height
-	
-	
+		$result=wp_get_attachment_image_src($attached_images[0],$size); //$attached_images[0] means first attached or image that has 					lowest menu order;//$result[0]: photo $result[1]:width ,$result[2]:height
 		if ($sizeinfo)
 			return $result;
 		else
@@ -109,7 +107,7 @@ function sphoto_archive_page() {
     <?php 
 	
 	if (!is_user_logged_in()) { ?>
-    <small><?php _e('By','sbp'); ?> <?php _e('<a href="http://wpwave.com/plugins/" title="Sidebar Photoblog WordPress Plugin">WordPress Sidebar Photoblog</a>','sbp'); ?></small>
+    	<div style="font-size:11px;"><?php _e('By','sbp'); ?> <?php _e('<a href="http://wpwave.com/plugins/" title="Sidebar Photoblog WordPress Plugin">WordPress Sidebar Photoblog</a>','sbp'); ?></div>
 	<?php }
 	
 }
@@ -129,7 +127,8 @@ function widget_sphoto_init() {
 				'opacity'=>'1',
 				'morelink'=>'',
 				'hoverimage'=>'1',
-				'rand'=>'0'
+				'rand'=>'0',
+				'slide'=>0
 				);
 			update_option('widget_sphoto',$newoptions); 
 		}
@@ -143,6 +142,7 @@ function widget_sphoto_init() {
 		$morelink = $options['morelink'];
 		$hoverimage = $options['hoverimage'];
 		$rand = $options['rand'];
+		$slide = $options['slide'];
 		
 		$size_w=get_option('thumbnail_size_w');
 		$size_h=get_option('thumbnail_size_h');
@@ -156,6 +156,7 @@ function widget_sphoto_init() {
 				$newoptions['morelink'] = strip_tags(stripslashes($_POST['morelink']));
 				$newoptions['hoverimage'] = strip_tags(stripslashes($_POST['hoverimage']));
 				$newoptions['rand'] = strip_tags(stripslashes($_POST['rand']));
+				$newoptions['slide'] = strip_tags(stripslashes($_POST['slide']));
 				
 				$size_w=strip_tags(stripslashes($_POST['size_w']));
 				$size_h=strip_tags(stripslashes($_POST['size_h']));
@@ -212,8 +213,8 @@ function widget_sphoto_init() {
    <p>     
 </p>
 
-<input type="checkbox" name="border" id="border" value="1" <?php if ($border) echo 'checked'; ?> />
-<label for="border"><?php _e('Display photos with border and padding (Recommended)','sbp'); ?>
+<input type="checkbox" name="slide" id="slide" value="1" <?php if ($slide) echo 'checked'; ?> />
+<label for="border"><?php _e('Display photos as slideshow','sbp'); ?>
 </label><br />
 
 <input type="checkbox" name="rand" id="border" value="1" <?php if ($rand) echo 'checked'; ?> />
@@ -224,10 +225,18 @@ function widget_sphoto_init() {
 <label for="opacity"><?php _e('Enable opacity effect','sbp'); ?>
 </label><br />	
 
+<input type="checkbox" name="border" id="border" value="1" <?php if ($border) echo 'checked'; ?> />
+<label for="border"><?php _e('Display photos with border and padding (Recommended)','sbp'); ?>
+</label><br />
+
+
+
+
+
 <input type="checkbox" name="hoverimage" id="hoverimage" value="1" <?php if ($hoverimage) echo 'checked'; ?> />
 <label for="hoverimage"><?php _e('Display preview pop-up image effect','sbp'); ?>
-</label><br/>
-Love Sidebar Photoblog? <a href="http://www.wordpress.org/extend/plugins/sidebar-photoblog/">Vote it Up!</a><br/>
+</label><br/><br/>
+<center>Do you like Sidebar Photoblog? <a href="http://www.wordpress.org/extend/plugins/sidebar-photoblog/">Vote it Up!</a></center><br/>
 
 <input type="hidden" id="sphoto-submit" name="sphoto-submit" value="1" />
         <?php
@@ -246,6 +255,7 @@ function widget_sphoto($args) {
 	$morelink = $options['morelink'];
 	$hoverimage = $options['hoverimage'];
 	$rand = $options['rand'];
+	$slide = $options['slide'];
 		
 	$size_w=get_option('thumbnail_size_w');
 	$size_h=get_option('thumbnail_size_h');
@@ -255,9 +265,9 @@ function widget_sphoto($args) {
 
 	echo $before_widget . $before_title . $title . $after_title;
 	?>
-	<div class="widget_sphoto_body">
+	<br/><div class="widget_sphoto_body">
 
-<?php  print_sphoto($category,$numphoto ,$size_w,$size_h,$hoverimage,$rand) ;
+<?php  print_sphoto($category,$numphoto ,$size_w,$size_h,$hoverimage,$rand,$slide) ;
 
 		if ($options['morelink']) echo '<br/><a href="'.$options['morelink'].'" title="'.__('More Photos','sbp').'">'.__('More Photos','sbp').'</a>';
 		echo '</div>'.$after_widget;
@@ -271,41 +281,118 @@ register_widget_control('Sidebar Photoblog', 'widget_sphoto_control', 345, 620);
 
 //Don't worry if your theme isn't widgetized simply use this function : print_sphoto 
 //Note: For Hoverimage make sure you enabled preview pop-up in the wdiget options because it needs some header code!
-function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=false,$rand=0) {
+function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=false,$rand=0, $slide=0) {
 
 	  if ($rand)
-	  $photos = new WP_Query('showposts='.$numphoto.'&cat='.$category.'&orderby=rand'); 
+	  	$photos = new WP_Query('showposts='.$numphoto.'&cat='.$category.'&orderby=rand'); 
 	  else
-	  $photos = new WP_Query('showposts='.$numphoto.'&cat='.$category); 
+	 	$photos = new WP_Query('showposts='.$numphoto.'&cat='.$category); 
 	  
+	  $num=0;
 	  if ($photos->have_posts()) : 
-	  	while ($photos->have_posts()) : $photos->the_post(); 
+	  	while ($photos->have_posts() && (($num<$numphoto) || ($numphoto=='-1'))) : $photos->the_post(); 
 	  
 			$post_id=get_the_ID();
 			$imgsrc=sphoto_get_post_img_url($post_id,$size='thumbnail',$sizeinfo=false);
-			
-			if ($hoverimage){ $previewimage=sphoto_get_post_img_url($post_id,$size='medium',$sizeinfo=false);}
+				
+			if ($hoverimage){ 
+				$previewimage=sphoto_get_post_img_url($post_id,$size='medium',$sizeinfo=false);
+			}
 			// Testing $post_permalink=get_attachment_link($post_id);
+	
+			if ($imgsrc){ 
+				$num++;
+				$slide_images[]= $imgsrc;
+                $slide_titles[]= get_the_title();
+                $slide_previews[]= $previewimage;
+                $slide_links[]= get_permalink();
+                
+                if (!$slide) { ?>
+                    <span><a href="<?php echo the_permalink(); ?>" rel="bookmark" <?php if (!$hoverimage) { echo 'title="';the_title_attribute();echo '"';} ?> ><img src="<?php echo $imgsrc; ?>" <?php if (!$hoverimage) { echo 'alt="';the_title_attribute();echo '"';} ?> width="<?php echo $size_w; ?>px" height="<?php echo $size_h;?>px" <?php if ($hoverimage) { ?> onmouseover="preview('<div class=\'preview_caption\'><img src=\'<?php echo $previewimage;?>\' width=\'<?php echo get_option('medium_size_w'); ?>px\'><br/><center><?php the_title_attribute(); ?></center>');" onmouseout="hidepreview();"  <?php } ?>/></a></span>
+               <?php
+			   }
+			 }
+			   	 endwhile;
+
+			else : ?>
+			 <p class="center"><strong><?php _e('No photo currently!','sbp');?></strong></p>
+			 <p> <?php _e('How can you add your photos here? See <a href="http://wpwave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory','sbp');?></p>
 		
-			if ($imgsrc) { ?>
+			<?php 
+			endif;
 			
-			<span><a href="<?php echo the_permalink(); ?>" rel="bookmark" <?php if (!$hoverimage) { echo 'title="';the_title_attribute();echo '"';} ?> ><img src="<?php echo $imgsrc; ?>" <?php if (!$hoverimage) { echo 'alt="';the_title_attribute();echo '"';} ?> width="<?php echo $size_w; ?>px" height="<?php echo $size_h;?>px" <?php if ($hoverimage) { ?> onmouseover="preview('<div class=\'preview_caption\'><img src=<?php echo $previewimage;?>><br/><center><?php the_title_attribute(); ?></center>');" onmouseout="hidepreview();"  <?php } ?>/> </a></span>
-			
-	 <?php } ?>
-		  
+			if ($slide){ //slide  ?>
+							<SCRIPT LANGUAGE="JavaScript">
+                            <!-- Original:  Mike Canonigo (mike@canonigo.com) -->
+                            <!-- Web Site:  http://www.munkeehead.com -->
+							<!-- Begin
+							var NewImg = Array();
+							var NewTitle =Array();
+							var NewPreview =Array();
+							var NewLink =Array();
+                            <?php for ($j=0;$j<=$numphoto-1;$j++) {  
+                                 	  echo "NewImg[$j] = '$slide_images[$j]';"; 
+                                      echo "NewTitle[$j] = '$slide_titles[$j]'; ";
+                                      echo "NewPreview[$j] = '$slide_previews[$j]'; ";
+                                      echo "NewLink[$j] = '$slide_links[$j]'; ";
+                         		  } ?>
+							   
+                            var ImgNum = 0;
+                            var ImgLength = NewImg.length - 1;
+                            
+                            var delay = 5000;
+                            
+                            var lock = false;
+                            var run;
+							auto();
+                            function chgImg(direction) {
+                                if (document.images) {
+                                    ImgNum = ImgNum + direction;
+                                    if (ImgNum > ImgLength) {
+                                        ImgNum = 0;
+                                    }
+                                    if (ImgNum < 0) {
+                                        ImgNum = ImgLength;
+                                    }
+                                    document.slideshow.src = NewImg[ImgNum];
+                                    
+                                    document.getElementById("slide_link").href = NewLink[ImgNum];
+									document.getElementById("slide_link").title = NewTitle[ImgNum];
+                                   
+									
+                                }
+                            }
+                            function auto() {
+                            if (lock == true) {
+                            lock = false;
+                            window.clearInterval(run);
+                            }
+                            else if (lock == false) {
+                            lock = true;
+                            run = setInterval("chgImg(1)", delay);
+                               }
+                            }
+                            //  End -->
+                            </script>
+
+                        <span><a href="<?php echo $slide_links[0]; ?>" id="slide_link"  rel="bookmark" <?php if (!$hoverimage) { echo 'title="'.$slide_titles[0];echo '"';} ?> ><img src="<?php echo $slide_images[0]; ?>" name="slideshow" id="slideshowid" alt="<?php echo $slide_titles[0]; ?>" width="<?php echo $size_w; ?>px" height="<?php echo $size_h;?>px" /> </a></span>
+                        
+                    <center><table style="width:120px;">
+                    <tr>
+                   
+                    <td align="right"><a href="javascript:chgImg(-1)" title="<?php _e('Prev','sbp'); ?>"><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/next.png" border="0" /></a></td>
+                    <td align="center"><a href="javascript:auto()" title="<?php _e('Auto/Stop','sbp'); ?>" ><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/play.png" border="0" /></a></td>
+                    <td align="left"><a href="javascript:chgImg(1)" title="<?php _e('Next','sbp'); ?>" ><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/prev.png" border="0" /></a></td>
+                    </tr>
+                    </table></center>
+                    
+			  <?php } ?>          
+     
+
    
 	
 	<?php
-		 endwhile;
 	
-	 ?>
-    <?php 
-	else : ?>
-     <p class="center"><strong><?php _e('No photo currently!','sbp');?></strong></p>
-     <p> <?php _e('How can you add your photos here? See <a href="http://wpwave.com/plugins/sidebar-photoblog/">WordPress Sidebar Photoblog </a> or Readme.txt in the plugin directory','sbp');?></p>
-
-	<?php 
-	endif;
 	
 }
 
