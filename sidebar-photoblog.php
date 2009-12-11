@@ -4,7 +4,7 @@ Plugin Name: Sidebar Photoblog
 Plugin URI: http://wpwave.com/plugins/sidebar-photoblog/
 Description: Share your daily photos on your blog sidebar easily. 
 Author: Hassan Jahangiry
-Version: 2.02
+Version: 2.03
 Author URI: http://wpwave.com/
 */
 
@@ -322,67 +322,62 @@ function print_sphoto($category,$numphoto=3,$size_w=100,$size_h=100,$hoverimage=
 			endif;
 			
 			if ($slide){ //slide  ?>
-							<SCRIPT LANGUAGE="JavaScript">
-                            <!-- Original:  Mike Canonigo (mike@canonigo.com) -->
-                            <!-- Web Site:  http://www.munkeehead.com -->
-							<!-- Begin
-							var NewImg = Array();
-							var NewTitle =Array();
-							var NewPreview =Array();
-							var NewLink =Array();
-                            <?php for ($j=0;$j<=$numphoto-1;$j++) {  
-                                 	  echo "NewImg[$j] = '$slide_images[$j]';"; 
-                                      echo "NewTitle[$j] = '$slide_titles[$j]'; ";
-                                      echo "NewPreview[$j] = '$slide_previews[$j]'; ";
-                                      echo "NewLink[$j] = '$slide_links[$j]'; ";
-                         		  } ?>
-							   
-                            var ImgNum = 0;
-                            var ImgLength = NewImg.length - 1;
-                            
-                            var delay = 5000;
-                            
-                            var lock = false;
-                            var run;
-							auto();
-                            function chgImg(direction) {
-                                if (document.images) {
-                                    ImgNum = ImgNum + direction;
-                                    if (ImgNum > ImgLength) {
-                                        ImgNum = 0;
-                                    }
-                                    if (ImgNum < 0) {
-                                        ImgNum = ImgLength;
-                                    }
-                                    document.slideshow.src = NewImg[ImgNum];
-                                    
-                                    document.getElementById("slide_link").href = NewLink[ImgNum];
-									document.getElementById("slide_link").title = NewTitle[ImgNum];
-                                   
-									
-                                }
-                            }
-                            function auto() {
-                            if (lock == true) {
-                            lock = false;
-                            window.clearInterval(run);
-                            }
-                            else if (lock == false) {
-                            lock = true;
-                            run = setInterval("chgImg(1)", delay);
-                               }
-                            }
-                            //  End -->
-                            </script>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Mike Canonigo (mike@canonigo.com) -->
+<!-- Web Site:  http://www.munkeehead.com -->
+<!-- Begin
+var NewImg = Array();
+var NewTitle =Array();
+var NewPreview =Array();
+var NewLink =Array();
+<?php for ($j=0;$j<=$numphoto-1;$j++) {  
+		  echo "NewImg[$j] = '$slide_images[$j]';"; 
+		  echo "NewTitle[$j] = '$slide_titles[$j]'; ";
+		  echo "NewPreview[$j] = '$slide_previews[$j]'; ";
+		  echo "NewLink[$j] = '$slide_links[$j]'; ";
+	  } ?>
+   
+var ImgNum = 0;
+var ImgLength = NewImg.length - 1;
+var delay = 5000;
+var lock = false;
+var run;
+auto();
+function chgImg(direction) {
+	if (document.images) {
+		ImgNum = ImgNum + direction;
+		if (ImgNum > ImgLength) {
+			ImgNum = 0;
+		}
+		if (ImgNum < 0) {
+			ImgNum = ImgLength;
+		}
+		document.slideshow.src = NewImg[ImgNum];
+		document.getElementById("slide_link").href = NewLink[ImgNum];
+		document.getElementById("slide_link").title = NewTitle[ImgNum];
+	}
+}
+function auto() {
+if (lock == true) {
+lock = false;
+window.clearInterval(run);
+}
+else if (lock == false) {
+lock = true;
+run = setInterval("chgImg(1)", delay);
+   }
+}
+//  End -->
+</script>
 
                         <span><a href="<?php echo $slide_links[0]; ?>" id="slide_link"  rel="bookmark" <?php if (!$hoverimage) { echo 'title="'.$slide_titles[0];echo '"';} ?> ><img src="<?php echo $slide_images[0]; ?>" name="slideshow" id="slideshowid" alt="<?php echo $slide_titles[0]; ?>" width="<?php echo $size_w; ?>px" height="<?php echo $size_h;?>px" /> </a></span>
                         
                     <center><table style="width:120px;">
                     <tr>
                    
-                    <td align="right"><a href="javascript:chgImg(-1)" title="<?php _e('Prev','sbp'); ?>"><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/next.png" border="0" /></a></td>
-                    <td align="center"><a href="javascript:auto()" title="<?php _e('Auto/Stop','sbp'); ?>" ><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/play.png" border="0" /></a></td>
-                    <td align="left"><a href="javascript:chgImg(1)" title="<?php _e('Next','sbp'); ?>" ><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/prev.png" border="0" /></a></td>
+                    <td align="right"><a href="javascript:chgImg(-1)" title="<?php _e('Prev','sbp'); ?>"><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/nexti.png" border="0" /></a></td>
+                    <td align="center"><a href="javascript:auto()" title="<?php _e('Auto/Stop','sbp'); ?>" ><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/playi.png" border="0" /></a></td>
+                    <td align="left"><a href="javascript:chgImg(1)" title="<?php _e('Next','sbp'); ?>" ><img src="<?php echo WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)); ?>/previ.png" border="0" /></a></td>
                     </tr>
                     </table></center>
                     
