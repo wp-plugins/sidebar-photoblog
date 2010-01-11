@@ -1,9 +1,9 @@
-=== Sidebar Photoblog ===
+ï»¿=== Sidebar Photoblog ===
 Contributors: Hassan Jahangiry
 Donate link: http://wpwave.com/plugins/cms-members/
 Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery, random,slideshow
 Requires at least: 2.6
-Tested up to: 2.9
+Tested up to: 2.9.1
 Stable tag: 2.0
 
 An easy to use photoblog plugin helps you to share your daily photos on your sidebar. With slideshow, photo archive, nice effects and ability to show random images
@@ -16,11 +16,10 @@ There are several photo blog plug-in for WordPress. Most of them assume that you
 Sidebar Photo blog does not use lots of server resources and doesn't have any confusing options.  It uses WordPress functions to get maximum compatibility and flexibility.
 
 New Features:
-
-* Slideshow
-
-* Ability to show random photos
-
+<ul>
+<li> Slideshow</li>
+<li> Ability to show random photos</li>
+</ul>
 
 Sidebar Photo blog is simple, light and easy to use. It also has some nice effects, a simple slideshow, ability to show random photos and an archive page for your pictures.
 
@@ -34,7 +33,6 @@ Languages:
 	Turkish by     [Hakan Demiray](http://www.dmry.net)
         Belorussian by [ilyuha](http://antsar.info)
 	
-
 To add your own language contact us.
  
 == Screenshots ==
@@ -62,12 +60,12 @@ Screenshots here: http://wpwave.com/plugins/sidebar-photoblog/#screenshot
 
 = How can I use it? =
 
-After installation, the plug-in automatically creates a category called ‘Sidebar Photo blog’ and a page for a photo archive called `Photos’. You can edit those categories and pages via WordPress but “[sphoto_archive]” should remain in the page content.
+After installation, the plug-in automatically creates a category called 'Sidebar Photo blog' and a page for a photo archive called 'Photos'. You can edit those categories and pages via WordPress but '[sphoto_archive]' should remain in the page content.
 To Insert Your Photos
-	1.Click for new posts and choose the photo blog category (usually ‘Sidebar Photo blog’).
-	2.Upload your photo via the WordPress Editor (don’t use ‘From URL’ tab).
+	1.Click for new posts and choose the photo blog category (usually 'Sidebar Photo blog').
+	2.Upload your photo via the WordPress Editor (don't use "From URL" tab).
 	3.Insert the full size image into post and publish it.
-It’s that easy!
+Itâ€™s that easy!
 
 It is very flexible.  You can upload several photos and add your own content but olny first photo will be appear in widget.
 
@@ -86,13 +84,7 @@ Open sidebar-photoblog.php with a text-editor(like notepad) or plugin editor in 
 
 =I want to display photo grid (in two or more columns)=
 
-Simply reduce photo size. If you don’t want it you should increase your sidebar width. The plugin arrange photos automatically.
-
-= Anything else? =
-
-You can get 20% discount for all of wpwave.com plugins and services using this coupon code: 'mysidebarphotoblog' It's a limited time offer.
-
-
+Simply reduce photo size. If you don't want it you should increase your sidebar width. The plugin arrange photos automatically.
 
 
 == Installation ==
