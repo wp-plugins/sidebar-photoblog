@@ -2,8 +2,8 @@
 Contributors: Hassan Jahangiry
 Donate link: http://wpwave.com/plugins/cms-members/
 Tags: photo,photoblog,image,images,widget,sidebar,wpmu,media,upload,picture,pictures,widget,share,gallery, random,slideshow
-Requires at least: 2.6
-Tested up to: 2.9.1
+Requires at least: 2.7
+Tested up to: 2.9.2
 Stable tag: 2.0
 
 An easy to use photoblog plugin helps you to share your daily photos on your sidebar. With slideshow, photo archive, nice effects and ability to show random images
